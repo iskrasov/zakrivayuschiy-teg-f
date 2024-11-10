@@ -17,4 +17,507 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  padding-bottom: 100px;
+  font-family: var(--main-font), sans-serif;
+  font-weight: var(--body-fs);
+  background-image: var(--back-gradient);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--back-color);
+  color: var(--main-color);
 }
+
+@supports (font-variation-settings: var(--body-fs)) {
+  .page {
+      font-family: var(--main-font), sans-serif;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+}
+
+.header__container {
+  width: 100%;
+  /* max-block-size: clamp(20.438rem, 19.535rem + 3.85vw, 23rem); */
+  max-inline-size: 700px;
+  margin: auto;
+  margin-top: 100px;
+  padding-block-start: 6.75rem;
+  padding-block-end: var(--gapping-s);
+  padding-inline-start: 6rem;
+  padding-inline-end: 6rem;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--back-color);
+  background-color: var(--back-color);
+  border: 2px solid var(--main-color);
+  font-family: var(--accent-font);
+  text-transform: uppercase;
+}
+
+.header__heading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px
+}
+
+.header__heading {
+  /* C clamp я не попадаю в дизайн */
+  font-size: 65px;
+}
+
+.header__sub-heading {
+  /* C clamp я не попадаю в дизайн */
+  font-size: 23px;
+}
+
+.theme-menu__list {
+  padding-inline-start: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theme-menu__button {
+  position: relative;
+  text-transform: uppercase;
+  transition: .3s ease;
+}
+
+.theme-menu__button:focus,
+.theme-menu__button:focus-visible {
+  opacity: .6;
+}
+
+.theme-menu__button::after {
+  position: absolute;
+  content: '';
+  top: 13px;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--main-color);
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+  transition: .3s ease;
+}
+
+.theme-menu__button:disabled {
+  pointer-events: none;
+  display: flex;
+  position: relative;
+  color: rgba(0,0,0, 0.6);
+}
+
+.theme-menu__button:disabled::before {
+  position: absolute;
+  content: "▶";
+  left: -20px;
+  animation: bouncing 0.5s infinite ease-in-out alternate;
+}
+
+@keyframes bouncing {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+.theme-menu__button:hover {
+  position: relative;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: .3s ease;
+}
+
+.main__section {
+  margin-block-start: 5em;
+}
+
+.main__section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.section__card-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Карточка */
+.section__card {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  background: var(--back-color);
+}
+
+.card__heading {
+  display: flex;
+  padding-inline-start: 10px;
+  padding-block-start: 3px;
+  padding-block-end: 3px;
+  border: 2px solid;
+  border-color: var(--main-color);
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: var(--gapping-xxxs);
+}
+
+.card__picture-container {
+  position: relative;
+  display: flex;
+  max-width: 700px;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-color: var(--main-color);
+}
+
+.card__label {
+  position: absolute;
+  top: var(--gapping-s2);
+  right: var(--gapping-s2);
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-shadow:
+   0   -1px 0   var(--back-color),
+   0    1px 0   var(--back-color),
+  -1px  0   0   var(--back-color),
+   1px  0   0   var(--back-color),
+  -1px -1px 0   var(--back-color),
+   1px -1px 0   var(--back-color),
+  -1px  1px 0   var(--back-color),
+   1px  1px 0   var(--back-color);
+  opacity: 50%;
+}
+
+@supports ((text-stroke: 1px var(--back-color)) or (-webkit-text-stroke: 1px var(--back-color))) {
+  .card__label {
+    text-stroke: 1px var(--back-color);
+    -webkit-text-stroke: 1px var(--back-color);
+    text-shadow: none;
+  }
+}
+
+.card__label:first-child {
+  mix-blend-mode: hard-light;
+}
+
+.card__picture {
+  width: 100%;
+}
+
+.card__txt-container {
+  padding: var(--gapping-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gapping-s2);
+  border: 2px solid;
+  border-color: var(--main-color);
+}
+
+.card__txt {
+  line-height: 21px;
+  letter-spacing: var(--anti-gapping);
+}
+
+.card__icon-button {
+  border: 2px solid transparent;
+  transition: .3s ease;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--main-color);
+  transition: .3s ease;
+}
+
+.card__like-button-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 6px;
+}
+
+.card__like-button {
+  display: flex;
+  justify-content: center;
+  max-width: 130px;
+  position: relative;
+  padding: 12px 35px;
+  border: 2px solid var(--main-color);
+}
+
+.card__like-button::after,
+.button-save::after,
+.dialog__button::after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  content: "";
+}
+
+.card__like-button:hover::after,
+.button-save:hover::after,
+.dialog__button:hover::after {
+  width: 100%;
+  background: var(--main-color);
+  animation: slide-inverse 0.3s ease-in-out;
+  transform-origin: left;
+}
+
+@keyframes slide-inverse {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.card__like-button:focus-visible {
+  border: 2px solid var(--main-color);
+  box-shadow: 2px 2px 0 var(--main-color);
+  transition: .3s ease;
+}
+
+.button__text,
+.button__icon-save {
+  position: relative;
+  z-index: 1;
+  color: var(--btn-inverse-color);
+  mix-blend-mode: difference;
+}
+
+.section__button-save-container {
+  width: 100%;
+}
+
+.button-save {
+  position: relative;
+  margin: auto;
+  margin-block-start: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border: 2px solid var(--main-color);
+  background: var(--back-color);
+}
+
+.button__icon-save {
+  max-inline-size: 21px;
+  max-block-size: 21px;
+}
+
+.contour {
+  fill: var(--contour-color);
+  transition: 0.1s;
+}
+
+.main-body {
+  fill: transparent;
+  transition: 0.3s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--main-body-color-hover);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.card__icon-button:active .main-body,
+.card__icon-button:active .core {
+  fill: var(--sparks-and-main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.core {
+  fill: transparent;
+  transition: 0.3s;
+  transition-delay: 0.03s;
+}
+
+.card__icon-button:hover .core {
+  transition: fill 0.3s linear;
+}
+
+.sparks {
+  fill: var(--sparks-and-main-body-color);
+  opacity: 0;
+}
+
+.like-icon.is-liked .core {
+  transition: fill 0.3s linear;
+  fill: var(--sparks-and-main-body-color);
+}
+
+.like-icon.is-liked .main-body {
+  transition: fill 0.3s linear 0.2s;
+  fill: var(--sparks-and-main-body-color);
+}
+
+.like-icon.is-liked .contour {
+  transition: fill 0.3s linear 0.06s;
+  fill: var(--sparks-and-main-body-color);
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-increase 0.3s ease-in 0.1s alternate;
+  transform-origin: center;
+}
+
+@keyframes heart-increase {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.like-icon.is-liked .sparks {
+  animation: is-sparks 0.3s ease-in 0.3s alternate;
+  transform-origin: center;
+}
+
+@keyframes is-sparks {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.icon-save__path{
+  fill: var(--btn-inverse-color);
+}
+
+#dialog__insert-discette[open] {
+  max-inline-size: 353px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: var(--back-color);
+  border: 2px solid var(--main-color);
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dialog__content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__icon-save {
+  min-width: 39px;
+  min-height: 39px;
+}
+
+.dialog__text {
+  line-height: 150%;
+}
+
+.dialog__button {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.538rem 0;
+  border: 2px solid var(--main-color);
+  background: var(--back-color);
+  text-transform: uppercase;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+} 
+
+
+@media (width <= 375px) {
+  .button-save {
+    margin-inline-start: 30px;
+    margin-inline-end: 30px;
+    flex-direction: column;
+    gap: 8px;
+    transition: 0.3s ease-in;
+  }
+
+  .button__icon-save {
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+  .header__heading {
+    font-size: 49px;
+  }
+  
+  .header__sub-heading {
+    font-size: 14px;
+  }
+}
+
+
+/* Стили картинок из карточек */
+
+.picture-2 {
+  filter: grayscale(80%);
+}
+
+.picture-3 {
+  filter: saturate(200%);
+}
+
+.picture-4 {
+  filter: hue-rotate(120%);
+}
+
+.picture-5 {
+  filter: invert(20%);
+}
+
+.picture-6 {
+  filter: sepia(60%);
+}
+
+.picture-7 {
+  filter: blur(5);
+}
+
+.picture-8 {
+  filter: contrast(475%) brightness(103%) hue-rotate(720%);
+}
+

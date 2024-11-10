@@ -32,10 +32,24 @@ a {
 
 button,
 input {
+  display: flex;
+  margin: 0;
+  padding: 0;
   color: currentColor;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 14px;
+  line-height: 90%;
+  background-color: transparent;
+  box-shadow: none;
+  border: 0;
+  outline:none;
+  font-family: var(--accent-font);
 }
+
+button:hover {
+  cursor: pointer;
+}
+
 
 ul,
 ol {
@@ -50,4 +64,19 @@ ol {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+dialog {
+  inset-inline-start: 0px;
+  inset-inline-end: 0px;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--back-color);
+  color: var(--main-color);
+  margin: auto;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--main-color);
+  border-image: none;
+  padding: 1em;
 }

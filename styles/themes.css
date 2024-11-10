@@ -4,3 +4,75 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+
+:root.theme-dark {
+  --back-color: #000;
+  --main-color: #00CC14;
+  --accent-color: #FF0000;
+  --btn-inverse-color: #00cc14;
+  --contour-color: #00cc14;
+  --main-body-color-hover: #00cc14;
+  --sparks-and-main-body-color: #FF0000;
+
+  --back-gradient:
+  repeating-linear-gradient(to right, rgb(0 0 0 / 1) 0 2px, rgb(0 0 0 / 0) 2px 4px),
+  repeating-linear-gradient(to bottom, rgb(0 0 0 / 1) 0 2px, rgb(0 0 0 / 0) 2px 4px),
+  linear-gradient(#007f0c, #004306);
+
+  --body-fs: 465;
+  --accent-fs: 785;
+
+  .theme-menu__button:disabled {
+    color: rgba(0, 204, 20, 0.6);
+  }
+
+}
+
+
+:root.theme-light {
+  --back-color: #fff;
+  --main-color: #000;
+  --accent-color: #FF0000;
+  --btn-inverse-color: #fff;
+  --contour-color: #000;
+  --main-body-color-hover: #000;
+  --sparks-and-main-body-color: #FF0000;
+
+  --back-gradient:
+  repeating-linear-gradient(to right, rgb(211 211 211 / 1) 0 2px, rgb(211 211 211 / 0) 2px 4px),
+  repeating-linear-gradient(to bottom, rgb(211 211 211 / 1) 0 2px, rgb(211 211 211 / 0) 2px 4px),
+  linear-gradient(#e7e7e7, #1a1a1a 99.9%);
+
+  --body-fs: 400;
+  --accent-fs: 700;
+
+  .theme-menu__button:disabled {
+  color: rgba(0,0,0, 0.6);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  --back-color: #000;
+  --main-color: #00cc14;
+  --accent-color: #FF0000;
+  --btn-inverse-color: #00cc14;
+  --contour-color: #00cc14;
+
+  --back-gradient:
+  repeating-linear-gradient(to right, rgb(0 0 0 / 1) 0 2px, rgb(0 0 0 / 0) 2px 4px),
+  repeating-linear-gradient(to bottom, rgb(0 0 0 / 1) 0 2px, rgb(0 0 0 / 0) 2px 4px),
+  linear-gradient(#007f0c, #004306);
+
+  --body-fs: 465;
+  --accent-fs: 785;
+  }
+
+  .theme-menu__button:disabled {
+    color: rgba(0, 204, 20, 0.6);
+  }
+
+  
+
+}

@@ -1,1 +1,40 @@
-/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+/* В этом файле будут храниться
+все значения переменных в исходном состоянии,
+а так же их изменения в зависимости
+от ширины устройства */
+
+:root {
+  /* Шрифты */
+  --main-font: 'Inter-Variable';
+  --accent-font: 'PressStart2P-Regular';
+  --body-fs: 400;
+  --accent-fs: 700;
+  
+
+  /* Цвета */
+  --back-color: #fff;
+  --main-color: #000;
+  --accent-color: #FF0000;
+  --btn-inverse-color: #000;
+  --contour-color: #000;
+  --main-body-color-hover: #000;
+  --sparks-and-main-body-color: #FF0000;
+  
+
+  /* Фоновое изображение */
+  --back-gradient:
+  repeating-linear-gradient(to right, rgb(211 211 211 / 1) 0 2px, rgb(211 211 211 / 0) 2px 4px),
+  repeating-linear-gradient(to bottom, rgb(211 211 211 / 1) 0 2px, rgb(211 211 211 / 0) 2px 4px),
+  linear-gradient(#e7e7e7, #1a1a1a 99.9%);
+  
+
+  /* Отступы */
+  --gapping-l: 6.25rem;
+  --gapping-m: 3.125rem;
+  --gapping-s: 1.25rem;
+  --gapping-s2: 1.35rem;
+  --gapping-xs: 0.625rem;
+  --gapping-xxs: 0.313rem;
+  --gapping-xxxs: 0.0125rem;
+  --anti-gapping: -0.025rem;
+}
