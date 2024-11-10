@@ -416,7 +416,7 @@
   }
 }
 
-.icon-save__path{
+.icon-save__path {
   fill: var(--btn-inverse-color);
 }
 
@@ -518,6 +518,6 @@ dialog::backdrop {
 }
 
 .picture-8 {
-  filter: contrast(475%) brightness(103%) hue-rotate(720%);
+  filter: contrast(475%) brightness(103%);
 }
 
