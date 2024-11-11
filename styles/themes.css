@@ -20,8 +20,8 @@
   repeating-linear-gradient(to bottom, rgb(0 0 0 / 1) 0 2px, rgb(0 0 0 / 0) 2px 4px),
   linear-gradient(#007f0c, #004306);
 
-  --body-fs: 465;
-  --accent-fs: 785;
+  --body-fs: 'wght' 465;
+  --accent-fs: 'wght' 785;
 
   .theme-menu__button:disabled {
     color: rgba(0, 204, 20, 0.6);

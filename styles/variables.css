@@ -7,8 +7,8 @@
   /* Шрифты */
   --main-font: 'Inter-Variable';
   --accent-font: 'PressStart2P-Regular';
-  --body-fs: 400;
-  --accent-fs: 700;
+  --body-fs: 'wght' 400;
+  --accent-fs: 'wght' 700;
   
 
   /* Цвета */

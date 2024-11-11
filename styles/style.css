@@ -36,11 +36,11 @@
   color: var(--main-color);
 }
 
-@supports (font-variation-settings: var(--body-fs)) {
+/* @supports (font-variation-settings: var(--body-fs)) {
   .page {
       font-family: var(--main-font), sans-serif;
   }
-}
+} */
 
 .header {
   width: 100%;
