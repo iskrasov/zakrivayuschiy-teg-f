@@ -16,16 +16,21 @@
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: Inter, sans-serif;
+    font-family: Inter, Arial, sans-serif;
     font-weight: 400 785;
   }
 }
 
 .page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  padding-bottom: 100px;
-  font-family: var(--main-font), sans-serif;
+  padding-bottom: 98px;
+  font-family: var(--main-font), Arial, sans-serif;
   font-weight: var(--body-fs);
   font-variation-settings: 'wght' var(--main-font);
   background-image: var(--back-gradient);
@@ -37,12 +42,6 @@
   color: var(--main-color);
 }
 
-/* @supports (font-variation-settings: var(--body-fs)) {
-  .page {
-      font-family: var(--main-font), sans-serif;
-  }
-} */
-
 .header {
   width: 100%;
   display: flex;
@@ -50,14 +49,11 @@
 
 .header__container {
   width: 100%;
-  /* max-block-size: clamp(20.438rem, 19.535rem + 3.85vw, 23rem); */
   max-inline-size: 700px;
   margin: auto;
-  margin-top: 100px;
-  padding-block-start: 6.75rem;
+  margin-block-start: 100px;
+  padding-block-start: 6.8rem;
   padding-block-end: var(--gapping-s);
-  padding-inline-start: 6rem;
-  padding-inline-end: 6rem;
   display: flex;
   align-items: center;
   gap: 25px;
@@ -66,11 +62,12 @@
   background: var(--back-color);
   background-color: var(--back-color);
   border: 2px solid var(--main-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), Arial, sans-serif;
   text-transform: uppercase;
 }
 
 .header__heading-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,14 +76,18 @@
   font-size: 14px
 }
 
-.header__heading {
-  /* C clamp я не попадаю в дизайн */
-  font-size: 65px;
+.header__logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(49px, 2.7104rem + 1.5023vw, 65px);
 }
 
-.header__sub-heading {
-  /* C clamp я не попадаю в дизайн */
-  font-size: 23px;
+.header__heading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(14px, 0.6769rem + 0.8451vw, 23px);
 }
 
 .theme-menu__list {
@@ -138,15 +139,6 @@
   animation: bouncing 0.5s infinite ease-in-out alternate;
 }
 
-@keyframes bouncing {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(4px);
-  }
-}
-
 .theme-menu__button:hover {
   position: relative;
   cursor: pointer;
@@ -173,7 +165,6 @@
   justify-content: center;
 }
 
-
 /* Карточка */
 .section__card {
   margin: auto;
@@ -186,11 +177,11 @@
 .card__heading {
   display: flex;
   padding-inline-start: 10px;
-  padding-block-start: 3px;
-  padding-block-end: 3px;
+  padding-block-start: 4px;
+  padding-block-end: 4px;
   border: 2px solid;
   border-color: var(--main-color);
-  font-family: inherit;
+  font-family: inherit, Arial, sans-serif;
   font-size: 18px;
   font-weight: 700;
   letter-spacing: var(--gapping-xxxs);
@@ -209,9 +200,8 @@
   position: absolute;
   top: var(--gapping-s2);
   right: var(--gapping-s2);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), Arial, sans-serif;
   font-size: 14px;
-  text-transform: uppercase;
   text-shadow:
    0   -1px 0   var(--back-color),
    0    1px 0   var(--back-color),
@@ -244,24 +234,14 @@
   padding: var(--gapping-s);
   display: flex;
   flex-direction: column;
-  gap: var(--gapping-s2);
+  gap: var(--gapping-s);
   border: 2px solid;
   border-color: var(--main-color);
 }
 
 .card__txt {
+  font-size: 18px;
   line-height: 21px;
-  letter-spacing: var(--anti-gapping);
-}
-
-.card__icon-button {
-  border: 2px solid transparent;
-  transition: .3s ease;
-}
-
-.card__icon-button:focus-visible {
-  border: 2px solid var(--main-color);
-  transition: .3s ease;
 }
 
 .card__like-button-container {
@@ -271,18 +251,27 @@
   gap: 6px;
 }
 
-.card__like-button {
-  display: flex;
-  justify-content: center;
-  max-width: 130px;
-  position: relative;
-  padding: 12px 35px;
-  border: 2px solid var(--main-color);
+.card__icon-button {
+  border: 2px solid transparent;
 }
 
-.card__like-button::after,
-.button-save::after,
-.dialog__button::after {
+.card__icon-button:focus-visible {
+  border: 2px solid var(--main-color);
+  transition: .3s ease;
+}
+
+.border-button {
+  /* margin: auto; */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--main-color);
+  transition: .3s ease;
+  background: var(--back-color);
+}
+
+.border-button::after {
   position: absolute;
   display: block;
   top: 0;
@@ -292,29 +281,49 @@
   content: "";
 }
 
-.card__like-button:hover::after,
-.button-save:hover::after,
-.dialog__button:hover::after {
+.border-button:hover::after {
   width: 100%;
   background: var(--main-color);
   animation: slide-inverse 0.3s ease-in-out;
   transform-origin: left;
 }
 
-@keyframes slide-inverse {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-}
-
-.card__like-button:focus-visible {
-  border: 2px solid var(--main-color);
+.border-button:focus-visible {
   box-shadow: 2px 2px 0 var(--main-color);
   transition: .3s ease;
 }
+
+.card__like-button {
+  max-width: 130px;
+  padding: 12px 35px;
+}
+
+/* .card__like-button::after,
+.button-save::after,
+.dialog__button::after {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  content: "";
+} */
+
+/* .card__like-button:hover::after,
+.button-save:hover::after,
+.dialog__button:hover::after {
+  width: 100%;
+  background: var(--main-color);
+  animation: slide-inverse 0.3s ease-in-out;
+  transform-origin: left;
+} */
+
+/* .card__like-button:focus-visible {
+  border: 2px solid var(--main-color);
+  box-shadow: 2px 2px 0 var(--main-color);
+  transition: .3s ease;
+} */
 
 .button__text,
 .button__icon-save {
@@ -329,15 +338,10 @@
 }
 
 .button-save {
-  position: relative;
   margin: auto;
   margin-block-start: 50px;
-  display: flex;
-  align-items: center;
   gap: 8px;
-  padding: 14px 20px;
-  border: 2px solid var(--main-color);
-  background: var(--back-color);
+  padding: 15px 20px;
 }
 
 .button__icon-save {
@@ -401,27 +405,9 @@
   transform-origin: center;
 }
 
-@keyframes heart-increase {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.2);
-  }
-}
-
 .like-icon.is-liked .sparks {
   animation: is-sparks 0.3s ease-in 0.3s alternate;
   transform-origin: center;
-}
-
-@keyframes is-sparks {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .icon-save__path {
@@ -436,7 +422,7 @@
   gap: 30px;
   background: var(--back-color);
   border: 2px solid var(--main-color);
-  font-family: var(--accent-font);
+  font-family: var(--accent-font), Arial, sans-serif;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -453,20 +439,17 @@
   min-height: 39px;
 }
 
+.dialog__icon-save__path {
+  fill: var(--back-color);
+}
+
 .dialog__text {
   line-height: 150%;
 }
 
 .dialog__button {
   width: 100%;
-  position: relative;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0.538rem 0;
-  border: 2px solid var(--main-color);
-  background: var(--back-color);
   text-transform: uppercase;
 }
 
@@ -476,12 +459,20 @@ dialog::backdrop {
 
 
 @media (width <= 375px) {
+  
+  .header__container {
+    padding-block-start: 6rem;
+  }
+
+  .card__label {
+    top: 25px;
+    right: 13px;
+  }
+
   .button-save {
+    flex-direction: column;
     margin-inline-start: 30px;
     margin-inline-end: 30px;
-    flex-direction: column;
-    gap: 8px;
-    transition: 0.3s ease-in;
   }
 
   .button__icon-save {
@@ -489,11 +480,11 @@ dialog::backdrop {
     min-height: 28px;
   }
 
-  .header__heading {
+  .header__logo {
     font-size: 49px;
   }
   
-  .header__sub-heading {
+  .header__heading {
     font-size: 14px;
   }
 }
@@ -501,31 +492,31 @@ dialog::backdrop {
 
 /* Стили картинок из карточек */
 
-.picture-2 {
+.filter-grayscale {
   filter: grayscale(80%);
 }
 
-.picture-3 {
+.filter-saturate {
   filter: saturate(200%);
 }
 
-.picture-4 {
+.filter-hue-rotate {
   filter: hue-rotate(120%);
 }
 
-.picture-5 {
+.filter-invert {
   filter: invert(20%);
 }
 
-.picture-6 {
+.filter-sepia {
   filter: sepia(60%);
 }
 
-.picture-7 {
+.filter-blur {
   filter: blur(5);
 }
 
-.picture-8 {
+.filter-contrast-brightness {
   filter: contrast(475%) brightness(103%);
 }
 

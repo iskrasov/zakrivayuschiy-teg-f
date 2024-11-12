@@ -26,7 +26,6 @@
   .theme-menu__button:disabled {
     color: rgba(0, 204, 20, 0.6);
   }
-
 }
 
 
@@ -72,7 +71,4 @@
   .theme-menu__button:disabled {
     color: rgba(0, 204, 20, 0.6);
   }
-
-  
-
 }
