@@ -52,7 +52,7 @@
   max-inline-size: 700px;
   margin: auto;
   margin-block-start: 100px;
-  padding-block-start: 6.8rem;
+  padding-block-start: 136px;
   padding-block-end: var(--gapping-s);
   display: flex;
   align-items: center;
@@ -147,7 +147,7 @@
 }
 
 .main__section {
-  margin-block-start: 5em;
+  margin-block-start: 100px;
 }
 
 .main__section-container {
@@ -461,7 +461,7 @@ dialog::backdrop {
 @media (width <= 375px) {
   
   .header__container {
-    padding-block-start: 6rem;
+    padding-block-start: 120px;
   }
 
   .card__label {
